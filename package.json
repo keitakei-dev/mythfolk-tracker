@@ -1,0 +1,4 @@
+{
+  "name": "mythfolk-tracker",
+  "dependencies": { "@netlify/blobs": "latest" }
+}
