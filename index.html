@@ -68,12 +68,13 @@ const G4=[["FERNANDEZ","EREÑA","ESCAÑO","ORBON","JAMITO","LOVENDINO","ILUSTRE"
 const SLN=[["g","Submitted","✓"],["y","Submitted late","◐"],["r","Did not submit","✕"]];
 const PN=[["g","Presented","✓"],["r","Did not present","✕"]];
 const PAIRS=[["CORPUZ","SANGO"],["CAPUSO","PALAÑA"],["LOVENDINO","ILUSTRE"],["MANALON","EREÑA"],["EBRADA","FERNANDEZ"],["CHENG","LACAMBRA"],["ESCAÑO","JAMITO"],["MAYLAS","VERSO"],["BABAO","SOLIS"],["FABIANO","REYES"],["CASTILLO","SUBOL"],["BORIGAS","REGALADO"],["MILLARES","ORTEGA"],["DESTACAMENTO","ORBON"]];
+ const WDG=[["DESTACAMENTO","PALAÑA","FABIANO","MANALON"],["JAMITO","LOVENDINO","ESCAÑO"],["LACAMBRA","SANGO","EREÑA"],["MAYLAS","REGALADO","CASTILLO"],["MILLARES","CAPUSO","FERNANDEZ"],["CHENG","REYES","SUBOL"],["CORPUZ","VERSO","EBRADA"],["ORBON","BORIGAS","SOLIS"],["ORTEGA","BABAO","ILUSTRE"]];
  const TABS=[
 {id:"qw",name:"Quick Writes",t:"stu",set:SLN,cols:["QW1","QW2","QW3","QW4"]},
 {id:"ws",name:"Worksheets",t:"grp",set:SLN,gr:PAIRS,lbl:"Pair"},
   {id:"sw",name:"Star Wars",t:"grp",set:PN,gr:G8},
 {id:"th",name:"Theogony",t:"grp",set:PN,gr:G8},
-{id:"wd",name:"Works and Days",t:"grp",set:PN,gr:G8},
+{id:"wd",name:"Works and Days",t:"grp",set:PN,gr:WDG},
 {id:"cm",name:"Concept Map",t:"grp",set:PN,gr:G4},
 {id:"cp",name:"Capstone",t:"grp",set:PN,gr:G4}];
 const COL={g:"var(--g)",y:"var(--y)",r:"var(--r)"};
