@@ -67,9 +67,11 @@ const G8=[["ORTEGA","LACAMBRA","SANGO","VERSO"],["ESCAÑO","ORBON","REYES","BABA
 const G4=[["FERNANDEZ","EREÑA","ESCAÑO","ORBON","JAMITO","LOVENDINO","ILUSTRE"],["DESTACAMENTO","BABAO","ORTEGA","SANGO","MANALON","SOLIS","MILLARES"],["FABIANO","LACAMBRA","REGALADO","REYES","VERSO","BORIGAS","CAPUSO"],["MAYLAS","PALAÑA","CHENG","SUBOL","CORPUZ","CASTILLO","EBRADA"]];
 const SLN=[["g","Submitted","✓"],["y","Submitted late","◐"],["r","Did not submit","✕"]];
 const PN=[["g","Presented","✓"],["r","Did not present","✕"]];
-const TABS=[
+const PAIRS=[["CORPUZ","SANGO"],["CAPUSO","PALAÑA"],["LOVENDINO","ILUSTRE"],["MANALON","EREÑA"],["EBRADA","FERNANDEZ"],["CHENG","LACAMBRA"],["ESCAÑO","JAMITO"],["MAYLAS","VERSO"],["BABAO","SOLIS"],["FABIANO","REYES"],["CASTILLO","SUBOL"],["BORIGAS","REGALADO"],["MILLARES","ORTEGA"],["DESTACAMENTO","ORBON"]];
+ const TABS=[
 {id:"qw",name:"Quick Writes",t:"stu",set:SLN,cols:["QW1","QW2","QW3","QW4"]},
-{id:"sw",name:"Star Wars",t:"grp",set:PN,gr:G8},
+{id:"ws",name:"Worksheets",t:"grp",set:SLN,gr:PAIRS,lbl:"Pair"},
+  {id:"sw",name:"Star Wars",t:"grp",set:PN,gr:G8},
 {id:"th",name:"Theogony",t:"grp",set:PN,gr:G8},
 {id:"wd",name:"Works and Days",t:"grp",set:PN,gr:G8},
 {id:"cm",name:"Concept Map",t:"grp",set:PN,gr:G4},
@@ -96,7 +98,7 @@ function render(keep){
  if(T.t==="stu"){
   body=`<div class="panel scroll"><table><tr><th>Student</th>${T.cols.map(c=>`<th>${c}</th>`).join("")}</tr>${STU.map(n=>`<tr><td>${n}</td>${T.cols.map((c,i)=>{const k="qw"+i+"_"+n;keys.push(k);return `<td>${cell(k,T.set)}</td>`}).join("")}</tr>`).join("")}</table></div>`}
  else{
-  body=`<div class="groups">${T.gr.map((g,i)=>{const k=T.id+"_G"+(i+1);keys.push(k);const s=DB.marks[k]||"";return `<div class="card panel" data-s="${s}" style="--i:${i}"><h3>Group ${i+1}</h3><ul>${g.map(n=>`<li>${n}</li>`).join("")}</ul>${cellWide(k,T.set)}</div>`}).join("")}</div>`}
+  body=`<div class="groups">${T.gr.map((g,i)=>{const k=T.id+"_G"+(i+1);keys.push(k);const s=DB.marks[k]||"";return `<div class="card panel" data-s="${s}" style="--i:${i}"><h3>${T.lbl||"Group"} ${i+1}</h3><ul>${g.map(n=>`<li>${n}</li>`).join("")}</ul>${cellWide(k,T.set)}</div>`}).join("")}</div>`}
  const cnt=T.set.map(s=>`<span class="chip" style="border-color:${COL[s[0]]};color:${COL[s[0]]}">${s[1]}: ${keys.filter(k=>DB.marks[k]===s[0]).length}</span>`).join("");
  $("#view").innerHTML=`<div class="bar"><div class="legend">${cnt}</div></div>`+body;
  if(!keep){$("#view").classList.remove("swap");void $("#view").offsetWidth;$("#view").classList.add("swap")}}
